@@ -1,11 +1,12 @@
-# Render Deployment Configuration
+# Updated render.yaml
 
+# Correct syntax without gitCloneSubpath
 services:
-  - type: web
-    name: Bot
-    env: python
+  web:
+    type: web
+    name: "Your Service Name"
+    env: "python"
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
     plan: free
-    runtime: python3.8
-    buildCommand: pip install -r requirements.txt
-    startCommand: python main.py
-    gitCloneSubpath: .
+    autoDeploy: true
